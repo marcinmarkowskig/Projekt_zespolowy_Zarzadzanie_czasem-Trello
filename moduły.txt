@@ -1,0 +1,8 @@
+npm install
+npm install --save axios
+npm install --save lodash
+npm install --save redux-promise
+npm install --save react-router-dom@4.0.0
+npm install --save redux-form@6.6.3
+npm install --save redux-thunk
+npm install --save redux-promise-middleware
