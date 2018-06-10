@@ -68,10 +68,10 @@ class CreateTask extends Component {
     const errors = {};
 
     if (!values.content) {
-      errors.content = "Wprowadź nazwę!";
+      errors.content = "Enter description!";
     }
     if (!values.assigned_to) {
-      errors.assigned_to = "Wprowadź id wykonawcy!";
+      errors.assigned_to = "Enter user id!";
     }
 
     return errors;

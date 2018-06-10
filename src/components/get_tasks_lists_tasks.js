@@ -93,6 +93,9 @@ class GetTasksListsTasks extends Component {
         <p></p>
           {this.fetchGroups()}
           <CreateTask id_table={id_table} id_list={id_list} id_card={id_card} id_taskList={id_taskList}/>
+          <Link className="btn btn-danger" to={`/get-lists-cards/v1/tables/${id_table}/lists/${id_list}/cards/${id_card}/comments`} id='btnBackOpenCard'>
+            Back
+          </Link>
       </div>
     );
   }

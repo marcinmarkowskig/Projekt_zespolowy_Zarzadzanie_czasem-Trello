@@ -86,7 +86,7 @@ function validate(values) {
     const errors = {};
 
     if (!values.name) {
-      errors.name = "Wprowadź nazwę listy!";
+      errors.name = "Enter name!";
     }
 
     return errors;

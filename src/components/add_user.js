@@ -62,7 +62,7 @@ class AddUser extends Component {
       const errors = {};
 
       if (!values.email) {
-        errors.email = "Wprowadź email!";
+        errors.email = "Enter email!";
       }
 
       return errors;
