@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getUserTables, createTable, signIn, signOut } from '../actions';
+import { getUserTables, createTable, signIn, signOut, deleteTable } from '../actions';
 import { Link } from 'react-router-dom';
 
 class GetUserTables extends Component {
@@ -16,14 +16,29 @@ class GetUserTables extends Component {
       console.log('fetchTables get_user_tablesprivate.js:', this.props.tables )
       return _.map(this.props.tables, table => {
         return (
-          <li className="list-group-item" key={table.id}>
+          <li className="list-group-item" key={table.id}  id='tablesNames'>
             <Link to={`/get-tables-lists/${table.id}`}>
               {table.name}
             </Link>
+            <button
+              className="btn btn-danger pull-xs-right"
+              id='btnDeleteTable'
+              onClick={this.onDeleteClickTable.bind(this, table.id)}
+            >
+              Delete table
+            </button>
           </li>
         );
       }
     );
+  }
+
+  onDeleteClickTable(id_table) {
+    let cookieEmail = showCookie("cookieEmail");
+    let cookieToken = showCookie("cookieToken");
+    this.props.deleteTable(id_table, cookieEmail, cookieToken, () => {
+      alert('Table has been deleted successfully')
+    });
   }
 
   // fetchTablesGroup() {
@@ -51,22 +66,22 @@ class GetUserTables extends Component {
 
   render() {
     return (
-      <div>
+      <div className='backgroundGetUserTables'>
         <div id="navbar">
           <a href="#home">Home</a>
           <a href="#news">News</a>
           <a href="#contact">Contact</a>
-          <Link to="/get-user-groups">Grupy</Link>
+          <Link to="/get-user-groups">Groups</Link>
           {/* <a href="#" onClick={this.signOut2}>
             Click me
           </a> */}
           <Link id='block' to="/">
           <div>
-            Wyloguj się
+            Log out
           </div>
           </Link>
         </div>
-        <h3>Tablice prywatne:</h3>
+        <h1 id='h1'>Tables</h1>
           <ul className="list-group">
             {this.fetchTablesPrivate()}
           </ul>
@@ -74,8 +89,8 @@ class GetUserTables extends Component {
           <ul className="list-group">
             {this.fetchTablesGroup()}
           </ul> */}
-          <Link className="btn btn-primary" to="/create-table">
-            Utwórz nową tablicę
+          <Link className="btn btn-primary" id='btnCreateNewTable' to="/create-table">
+            Create new table
           </Link>
       </div>
     );
@@ -86,7 +101,7 @@ function mapStateToProps(state) {
   return { tables: state.tables };
 }
 
-export default connect(mapStateToProps, { getUserTables, createTable, signIn, signOut })(GetUserTables);
+export default connect(mapStateToProps, { getUserTables, createTable, signIn, signOut, deleteTable })(GetUserTables);
 
 function showCookie(name) {//służy do pokazania w zakładce Application w konsoli nazw emaili i tokenów zapamiętanych w ciasteczkach
     if (document.cookie != "") {

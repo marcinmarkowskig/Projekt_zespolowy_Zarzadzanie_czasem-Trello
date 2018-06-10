@@ -41,11 +41,11 @@ class ShowGroups extends Component {
       console.log('table', table.leader)
         return _.map(_.mapKeys(table, 'email'), lider => {
           return (
-            <div>
+            <div id='backgroundLeader'>
               {lider.id}
               <p></p>
-            {lider.email}
-          </div>
+              {lider.email}
+            </div>
           );
         }
       );
@@ -84,7 +84,7 @@ class ShowGroups extends Component {
             console.log('_.mapKeys(table.members', _.mapKeys(table.members, 'id'))
             console.log('user_information', user_information)
             return (
-              <li className="list-group-item" key={user_information.id}>
+              <li className="list-group-item" key={user_information.id}  id="membersNames">
                 Id: {user_information.id}
                 <p></p>
                 Email: {user_information.email}
@@ -150,22 +150,37 @@ class ShowGroups extends Component {
     const { list } = this.props;
     const { id } = this.props.match.params;//możemy to napisac dzięki React-Router; z adresu url pobieramy id ( z wildcarda /:id)
     return (
-      <div>
-
-        <h3>Grupy:</h3>
+      <div className='backgroundShowGroup'>
+        <div id="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
+          {/* <a href="#" onClick={this.signOut2}>
+            Click me
+          </a> */}
+          <Link id='block' to="/">
+          <div>
+            Log out
+          </div>
+          </Link>
+        </div>
+        <h1 id='h1'>Groups</h1>
         <ul className="list-group">
-          {this.showGroupsLeader()}
-          {this.showGroupsMembers()}
-            <Link className="btn btn-danger" to={`/get-user-groups`}>
-              Anuluj
-            </Link>
+          <h2>Leader</h2>
+          <div id='showGroupsLeader' >
+            {this.showGroupsLeader()}
+          </div>
+          <p></p>
+          <h2>Members</h2>
+            {this.showGroupsMembers()}
         </ul>
-        <button
+        {/* <button
           className="btn btn-danger pull-xs-right"
           onClick={this.onDeleteClick.bind(this, this.groupId())}
         >
           Usuń grupę
-        </button>
+        </button> */}
         {/* <button
           className="btn btn-primary pull-xs-right"
           onClick={this.onChangeLeaderClick.bind(this, this.groupId())}
@@ -183,6 +198,9 @@ class ShowGroups extends Component {
         <ChangeLeader id={id} history={history}/>
         <AddUser id={id}/>
         <RemoveUser id={id}/>
+        <Link className="btn btn-danger" to={`/get-user-groups`} id='btnBackShowGroup'>
+          Back
+        </Link>
       </div>
     );
   }

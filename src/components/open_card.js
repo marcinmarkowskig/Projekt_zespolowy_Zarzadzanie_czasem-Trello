@@ -9,7 +9,6 @@ import GetTasksListsTasks from './get_tasks_lists_tasks';
 
 class OpenCard extends Component {
   componentDidMount() {
-        console.log('opencard123')
     let cookieEmail = showCookie("cookieEmail");
     let cookieToken = showCookie("cookieToken");
     const { id_table } = this.props.match.params;
@@ -20,19 +19,21 @@ class OpenCard extends Component {
   }
 
   fetchComments() {
-    //  console.log('komentarze.js:', this.props.tables )
       return _.map(this.props.tables, table => {
         return (
-           <li className="list-group-item" key={table.id}>
-             Id: {table.id}
-              <p></p>
-             Opis: {table.content}
+           <li className="list-group-item" key={table.id} id="commentsNames">
+             <p></p>
+             <div id="tableContent">
+               {table.content}
+             <p></p>
              <button
+               id="btnDeleteComment"
                className="btn btn-danger pull-xs-right"
                onClick={this.onDeleteClickComment.bind(this, table.id)}
              >
-               Usuń komentarz
+               Delete comment
              </button>
+           </div>
            </li>
         );
       }
@@ -51,20 +52,22 @@ class OpenCard extends Component {
         // {this.props.getTasksListsTasks(cookieEmail, cookieToken, id_table, id_list, id_card, taskList.id)}
   //console.log('taskList', taskList)
         return (
-           <li className="list-group-item" key={taskList.id}>
-             Id: {taskList.id}
+           <li className="list-group-item" key={taskList.id} id="tasksListsNames">
               <p></p>
-             Opis: {taskList.name}
+              <div className='b'><b>Description</b></div>{taskList.name}
+              <p></p>
              <button
                className="btn btn-danger pull-xs-right"
                onClick={this.onDeleteClickTaskList.bind(this, taskList.id)}
              >
-               Usuń listę zadań
+               Delete task list
              </button>
-             <Link className="btn btn-primary" to={`/get-tasks-lists-tasks/v1/tables/${id_table}/lists/${id_list}/cards/${id_card}/tasks_lists/${taskList.id}/tasks`}>
+             <div id='btnShowTask' >
+             <Link id='btnLink' className="btn btn-primary" to={`/get-tasks-lists-tasks/v1/tables/${id_table}/lists/${id_list}/cards/${id_card}/tasks_lists/${taskList.id}/tasks`}>
                 {/* {this.props.getTasksListsTasks(cookieEmail, cookieToken, id_table, id_list, id_card, taskList.id)} */}
-               Pokaż zadania
+               Show tasks
              </Link>
+           </div>
 {/* <GetTasksListsTasks id_table={id_table} id_list={id_list} id_card={id_card} id_taskList={taskList.id}/> */}
            </li>
         );
@@ -81,7 +84,7 @@ class OpenCard extends Component {
     let cookieToken = showCookie("cookieToken");
     console.log(id_table)//działa dobrze
     this.props.deleteComment(cookieEmail, cookieToken, id_table, id_list, id_card, id_comment, () => {
-      alert('Usunięto komentarz')
+      alert('Comment has been deleted')
     });
   }
 
@@ -102,28 +105,40 @@ class OpenCard extends Component {
     const { id_card } = this.props.match.params;
 
     return (
-      <div>
-        --------Tasks Lists--------
+      <div className='backgroundOpenCard'>
+        <div id="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
+          {/* <a href="#" onClick={this.signOut2}>
+            Click me
+          </a> */}
+          <Link id='block' to="/">
+          <div>
+            Log out
+          </div>
+          </Link>
+        </div>
+          <p></p>
+        <h1 id='h1'>Tasks lists</h1>
         <p></p>
           <ul className="list-group">
             {this.fetchTasksLists()}
           </ul>
           <CreateTaskList id_table={id_table} id_list={id_list} id_card={id_card}/>
         <p></p>
-        ---------------------------
         <p></p>
-        --------KOMENTARZE--------
+        <h1 id='h2_1'>Comments</h1>
         <p></p>
           <ul className="list-group">
             {this.fetchComments()}
           </ul>
           <CreateComment id_table={id_table} id_list={id_list} id_card={id_card} />
          {/* <DeleteComment id_table={id_table} id_list={id_list} id_card={id_card}/> */}
-          <Link className="btn btn-danger" to={`/get-lists-cards/v1/tables/${id_table}/lists/${id_list}/cards`}>
-            Powrót
+          <Link className="btn btn-danger" to={`/get-lists-cards/v1/tables/${id_table}/lists/${id_list}/cards`} id='btnBackOpenCard'>
+            Back
           </Link>
-          <p></p>
-          ----------------------------
       </div>
     );
   }

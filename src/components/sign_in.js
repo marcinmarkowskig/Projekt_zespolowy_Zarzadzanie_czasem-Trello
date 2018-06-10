@@ -34,29 +34,35 @@ class SignIn extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <Field
-          label="Email"
-          name="email"
-          component={this.renderField}
-        />
-        <Field
-          label="Password"
-          name="password"
-          component={this.renderField}
-        />
-        <div>
-            <button type="submit" className="btn btn-primary">Zaloguj</button>
-        </div>
-        <div>
-          <p></p>
-            <label>Nie masz konta?</label>
-          <p></p>
-          <Link className="btn btn-primary" to="create-user">
-            Utwórz nowe konto
-          </Link>
-        </div>
-      </form>
+      <div className='backgroundSignIn'>
+        <div className='Hi'><b>HI AGAIN!</b></div><p></p>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
+          <div className='labelEmail'>Email</div>
+          <Field
+            name="email"
+            placeholder="Email"
+            component={this.renderField}
+          />
+          <div className='labelPassword'>Password</div>
+          <Field
+            name="password"
+            placeholder="Password"
+            type="password"
+            component={this.renderField}
+          />
+          <div>
+              <button type="submit" className="btnSI">Sign in</button>
+          </div>
+          <div>
+            <p></p>
+              <div className="divSignIn">Don't have an account?</div>
+            <p></p>
+            <Link className="btnSI2" to="create-user">
+              Sign up
+            </Link>
+          </div>
+        </form>
+      </div>
     );
   }
 }
@@ -65,10 +71,10 @@ function validate(values) {
     const errors = {};
 
     if (!values.email) {
-      errors.email = "Wprowadź email!";
+      errors.email = "Enter email!";
     }
     if(!values.password) {
-      errors.password = "Wprowadź hasło!";
+      errors.password = "Enter password!";
     }
 
     return errors;

@@ -36,30 +36,45 @@ class CreateTable extends Component {
     const { handleSubmit } = this.props;
 
     return (
+      <div className='backgroundGetUserTables'>
+        <div id="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
+          {/* <a href="#" onClick={this.signOut2}>
+            Click me
+          </a> */}
+          <Link id='block' to="/">
+          <div>
+            Log out
+          </div>
+          </Link>
+        </div>
+          <p></p>
+        <h1 id='h1'>Create new table</h1>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div>
-          <p></p>
-            <label>Utwórz nową tablicę</label>
-          <p></p>
+
         </div>
+        <div className='labelNameCreateTable'>Name</div>
         <Field
-          label="name"
           name="name"
           component={this.renderField}
         />
+        <div className='labelIdGroupCreateTable'>Id group</div>
         <Field
-          label="group_id"
           name="group_id"
           component={this.renderField}
         />
         <div>
-            <button type="submit" className="btn btn-primary">Utwórz</button>
-        </div>
-          <Link className="btn btn-danger" to="/get-user-tables">
-            Anuluj
+            <button type="submit" className="btn btn-primary" id='btnCreateCreateTable'>Create</button>
+            <Link className="btn btn-danger" to="/get-user-tables" id='btnBackCreateTable'>
+            Back
           </Link>
+        </div>
       </form>
-
+    </div>
     );
   }
 }
@@ -68,10 +83,10 @@ function validate(values) {
     const errors = {};
 
     if (!values.name) {
-      errors.name = "Wprowadź nazwę tablicy!";
+      errors.name = "Enter name!";
     }
     if (!values.group_id) {
-      errors.group_id = "Wprowadź id grupy!";
+      errors.group_id = "Enter id group!";
     }
 
     return errors;

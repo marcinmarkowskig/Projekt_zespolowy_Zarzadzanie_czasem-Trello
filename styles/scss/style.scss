@@ -1,0 +1,820 @@
+$navyBlue: #124e78;
+$beige: #f0f0c9;
+$pistachioColoured: #d6ffb7;
+$sandyColoured: #f5ff90;
+$orange: #ffc15e;
+$font-color: #111111;
+
+//SignIn
+.backgroundSignIn {
+  background: linear-gradient(to bottom right, #ff5d30, $orange);
+  border-radius: 15px;
+  border: 3px solid #5d991e;
+  box-shadow: 10px 10px;
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 200px 50px;
+}
+
+.labelSignIn{
+  color: $font-color;
+}
+
+.labelEmail, .labelPassword, .labelPasswordConfirmation {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 20px;
+}
+
+.labelEmail {
+  margin-top: 30px;
+}
+
+.labelPassword {
+  margin-top: 20px;
+}
+
+.Hi {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: -20px;
+}
+
+.divSignIn {
+  margin-top: 40px;
+  text-align: center;
+  color: #5d991e
+}
+
+.btnSI {
+  margin-left: 245px;
+  background-color: #42a1f4;
+  font-size:20px;
+}
+.btnSI2 {
+  margin-left: 255px;
+}
+
+.info
+{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+  color:black;
+}
+
+#navbar {
+  margin-top: -40px;
+  overflow: hidden;
+  background-color: #300;
+  width: 900px;
+  margin-left: -60px;
+  margin-right: 50px;
+  //position: fixed;
+//  margin-top: 40px;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+}
+
+#navbar #block  {
+  background-color: #c42725;
+  float: right;
+}
+
+.content {
+  padding: 15px;
+}
+
+.sticky {
+  position: fixed;
+//top: 40px;
+  width: 100%
+}
+
+.stickyFooter {
+  text-align:center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  background: $navyBlue;
+}
+.backgroundCreateUser {
+  border-radius: 15px;
+  border: 3px solid #5d991e;
+  box-shadow: 10px 10px;
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 200px 50px;
+  background: $orange;
+}
+
+.createAnAccount {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: -20px;
+}
+
+.btn-primary {
+  margin-left: 200px;
+}
+.btn-danger {
+  margin-left:20px
+}
+
+//Tables
+.backgroundGetUserTables {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+}
+#h1 {
+  color: $navyBlue;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.btn {
+    margin-left: 300
+}
+
+#btnCreateNewTable {
+  margin-top: 20px;
+  margin-left: 320px;
+}
+
+#tablesNames {
+  background: $orange;
+  margin: 10px;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 2px 2px 20px black;
+}
+
+#tablesNames:hover {
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(1.1);
+  background: #ffac2b;
+  font-size: 22px;
+
+  #btnDeleteTable {
+    margin-top: -4px;
+  }
+}
+
+#tablesNames a {
+  color: $navyBlue;
+  text-decoration: none;
+}
+
+#btnDeleteTable {
+  margin-top: -6px;
+}
+
+.labelNameCreateTable, .labelIdGroupCreateTable, .labelNameCreateCard {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 20px;
+  color: $navyBlue;
+}
+
+#btnCreateCreateTable {
+  margin-left: 300px;
+}
+
+#btnBackCreateTable {
+    margin-left: 20px
+}
+//lists
+.backgroundGetTablesLists {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+}
+#h1 {
+  color: $navyBlue;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.btn {
+    margin-left: 300
+}
+
+#btnCreateNewList {
+  margin-top: 20px;
+  margin-left: 260px;
+}
+
+#btnBackGetTablesLists {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+#listsNames {
+  background: $sandyColoured;
+  margin: 10px;
+  color: $navyBlue;
+  text-align: center;
+  font-size: 20px;
+  box-shadow: 2px 2px 20px black;
+}
+
+#listsNames:hover {
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(1.1);
+  background: #efff54;
+  font-size: 22px;
+
+  #btnDeleteTable {
+    margin-top: -4px;
+  }
+}
+
+#listsNames a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#btnShowCards {
+  margin-left: 160px;
+}
+
+#btnCreateNewCard {
+  margin-left: 20px;
+}
+
+.labelNameCreateList {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 20px;
+  color: $navyBlue;
+}
+
+#btnCreateCreateList {
+  margin-top: 20px;
+  margin-left: 300px;
+}
+
+#btnBackCreateList {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+//cards
+.backgroundGetListsCards {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+#cardsNames a {
+  color: $navyBlue;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#cardsNames {
+  background: white;
+  margin: 10px;
+  color: $navyBlue;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 2px 2px 15px black;
+}
+
+#cardsNames:hover {
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+  background: #b3b3b5;
+    color: white;
+  #cardsNames a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+  }
+
+  #btnDeleteTable {
+    margin-top: -4px;
+  }
+
+  .b {
+    font-size: 22px;
+  }
+
+  .c {
+    font-size: 25px;
+  }
+}
+
+.b {
+  text-align: center;
+  //margin-left: -100px;
+  font-size: 20px;
+}
+
+.c {
+  text-align: center;
+  //margin-left: -100px;
+  font-size: 23px;
+}
+
+#btnBackGetListsCards {
+  position: relative;
+  margin-right: 303px;
+  margin-top: -40px;
+}
+
+#descriptionGetListsCards {
+  margin-bottom: 50px;
+}
+
+#tableDescription {
+  margin:-18px;
+  margin-bottom: 35px;
+}
+
+#btnBackCards {
+    margin-right: 20px;
+}
+//CreateCard
+.backgroundCreateCard {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+#btnCreateCreateCard {
+  margin-left: -60px;
+}
+
+#btnBackCreateCard {
+  margin-left: 20px
+}
+
+//opencard
+.backgroundOpenCard {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+#h2 {
+  text-align: center;
+}
+
+#tasksListsNames a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#tasksListsNames {
+  background-color: #ffb2ad;
+  margin: 10px;
+  color: $navyBlue;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 2px 2px 15px black;
+}
+
+#tasksListsNames:hover {
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+  background: #ff847c;
+  color: white;
+  #cardsNames a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+  }
+
+  #btnDeleteTable {
+    margin-top: -4px;
+  }
+
+  .b {
+    font-size: 22px;
+  }
+}
+
+.b {
+  text-align: center;
+  //margin-left: -100px;
+  font-size: 20px;
+}
+
+#btnShowTask {
+  margin-right: 200px;
+}
+
+#btnLink {
+    color: white;
+    font-size: 15px;
+    padding: 5px;
+}
+
+//Comments
+#commentsNames a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#commentsNames {
+  background-color: white;
+  margin: 10px;
+  color: $navyBlue;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 2px 2px 15px black;
+}
+
+#commentsNames:hover {
+  color: #b3b3b5;
+  #cardsNames a {
+    color: #b3b3b5;
+    text-decoration: none;
+    font-size: 22px;
+  }
+}
+
+#h2_1 {
+  color: $navyBlue;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.b {
+  font-size: 22px;
+}
+
+.b {
+text-align: center;
+//margin-left: -100px;
+font-size: 20px;
+}
+
+#btnDeleteComment {
+  margin-right: 290px;
+//  margin-top: -40px;
+}
+
+#tableContent {
+  color: #6d6969;
+  margin-bottom: 50px;
+}
+
+//create taskList
+#h2createTaskList { //to
+  margin-top: 50px;
+}
+ .labelCreateTaskList {
+   text-align: center;
+   margin-bottom: -20px;
+   font-size: 20px;
+ }
+
+ #btnCreateCreateTaskList {
+    margin-left: 0px;
+ }
+
+
+//create comment
+#h2createComment { //to
+  margin-top: 50px;
+}
+ .labelCreateComment {
+   text-align: center;
+   margin-bottom: -20px;
+   font-size: 20px;
+ }
+
+ #btnCreateComment {
+    margin-left: 0px;
+ }
+
+ #btnBackOpenCard {
+   margin-top: 30px;
+   margin-right: 20px
+ }
+
+ #backgroundCommment {
+   background-color: green;
+   margin: 20px;
+ }
+
+//Tasks
+.backgroundGetTasksListsTasks {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+#tasksNames a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#tasksNames {
+  background-color: white;
+  margin: 10px;
+  color: $navyBlue;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 2px 2px 15px black;
+}
+
+#tasksNames:hover {
+  color: $navyBlue;
+  #cardsNames a {
+    color: $navyBlue;
+    text-decoration: none;
+    font-size: 22px;
+  }
+}
+
+#h2_1 {
+  color: $navyBlue;
+  padding-top: 15px;
+  text-align: center;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.b {
+  font-size: 22px;
+}
+
+.b {
+text-align: center;
+//margin-left: -100px;
+font-size: 20px;
+}
+
+#btnDeleteTask {
+  margin-right: 300px;
+//  margin-top: -40px;
+}
+
+#tableContent {
+  color: $navyBlue;
+  margin-bottom: 60px;
+}
+
+//create task
+
+.labelDescriptionCreateTask, .labelIdCreateTask {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 20px;
+}
+
+#h2createTask {
+  margin-top: 50px;
+}
+
+#btnCreateTask {
+   margin-left: 0px;
+}
+
+//Get user groups
+.backgroundGetUserGroups {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+#groupNames a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#groupNames {
+  background-color: #9b432b;
+  margin: 10px;
+  color: $navyBlue;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 2px 2px 15px black;
+}
+
+#groupNames:hover {
+  	-webkit-transform: scale(1.05);
+  	-ms-transform: scale(1.05);
+  	transform: scale(1.05);
+    background-color: #7f230a;
+      color: white;
+    #groupsNames a {
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+    }
+   }
+
+#leaderIdDescription {
+  margin-bottom: 50px;
+}
+
+#btnDeleteUserGroups {
+  position: relative;
+  margin-right: 300px;
+  margin-top: -40px;
+}
+
+#btnCreateNewGroup {
+  margin-top: 20px;
+  margin-left: -50px;
+}
+
+#btnBackNewGroup {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+//create group
+.backgroundCreateGroup {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+#btnBackCreateCard {
+  margin-left: 20px
+}
+
+.labelGroupName {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 20px;
+}
+
+#btnCreateGroup {
+  margin-top: 20px;
+  margin-left: -80px;
+}
+
+#btnBackCreateGroup {
+  margin-top: 20px;
+  margin-left: 20px
+}
+
+//Show group
+.backgroundShowGroup {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+#membersNames a {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#membersNames {
+  border: 1px solid black;
+  background-color: #d17530;
+  color: black;
+  padding-bottom: 15px;
+  font-size: 18px;
+  margin: 10px;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 2px 2px 15px black;
+}
+//
+// #groupNames:hover {
+//   	-webkit-transform: scale(1.05);
+//   	-ms-transform: scale(1.05);
+//   	transform: scale(1.05);
+//     background-color: #7f230a;
+//       color: white;
+//     #groupsNames a {
+//       color: white;
+//       text-decoration: none;
+//       font-size: 22px;
+//     }
+//    }
+//
+// #leaderIdDescription {
+//   margin-bottom: 50px;
+// }
+//
+// #btnDeleteUserGroups {
+//   position: relative;
+//   margin-right: 300px;
+//   margin-top: -40px;
+// }
+//
+// #btnCreateNewGroup {
+//   margin-top: 20px;
+//   margin-left: -50px;
+// }
+//
+// #btnBackNewGroup {
+//   margin-top: 20px;
+//   margin-left: 20px;
+// }
+
+#showGroupsLeader {
+  border: 1px solid black;
+  background-color: #f99345;
+  color: black;
+  padding-bottom: 15px;
+  font-size: 18px;
+  box-shadow: 2px 2px 15px black;
+}
+
+#btnBackShowGroup {
+  margin-top: 20px;
+  margin-left: -5px
+}
+
+//changeLeader
+.backgroundChangeLeader {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+.labelDescriptionLeaderId {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 20px;
+}
+
+#h2ChangeLeader {
+  margin-top: 50px;
+}
+
+#btnChangeLeader {
+  margin-left: -3px;
+}
+
+//AddUserToGroup
+.backgroundAddUser {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+.labelDescriptionAddUser {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 20px;
+}
+
+#h2AddUser {
+  margin-top: 30px;
+}
+
+#btnAddUser {
+  margin-left: -3px;
+}
+
+//RemoveUser
+.backgroundRemoveUser {
+  padding: 15px 70px 30px;
+  box-sizing: border-box;
+  margin: 30px 100px 50px;
+  text-align: center;
+}
+
+.labelDescriptionRemoveUser {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 20px;
+}
+
+#h2RemoveUser {
+  margin-top: 30px;
+}
+
+#btnRemoveUser {
+  margin-left: -3px;
+}

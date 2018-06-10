@@ -20,25 +20,23 @@ class GetTablesLists extends Component {
       // console.log('fetchLists get_tables_lists.js:', this.props.tables )
       return _.map(this.props.tables, list => {
         return (
-          <li className="list-group-item" key={list.id}>
-            {list.id}
+          <li className="list-group-item" key={list.id} id='listsNames'>
             {list.name}
-
-            <Link className="btn btn-primary" to={`/get-lists-cards/v1/tables/${id}/lists/${list.id}/cards`}>
-              Pokaż karty
+            <p></p>
+            <Link className="btn btn-primary" to={`/get-lists-cards/v1/tables/${id}/lists/${list.id}/cards`} id='btnShowCards'>
+              Show cards
             </Link>
 
-            <Link className="btn btn-primary" to={`/create-card/v1/tables/${id}/lists/${list.id}/cards`}>
-              Utwórz nową kartę
+            <Link className="btn btn-primary" to={`/create-card/v1/tables/${id}/lists/${list.id}/cards`} id='btnCreateNewCard'>
+              Create new card
             </Link>
 
             <button
               className="btn btn-danger pull-xs-right"
               onClick={this.onDeleteClickList.bind(this, list.id)}
             >
-              Usuń listę
+              Delete list
             </button>
-
           </li>
         );
       }
@@ -55,6 +53,7 @@ class GetTablesLists extends Component {
     let cookieToken = showCookie("cookieToken");
     console.log(table_id)
     this.props.deleteTable(table_id, cookieEmail, cookieToken, () => {
+      alert('List has been deleted successfully')
       this.props.history.push('/get-user-tables');
     });
   }
@@ -66,6 +65,7 @@ class GetTablesLists extends Component {
     console.log(id_list)
     this.props.deleteList(id_list, id, cookieEmail, cookieToken, () => {
       this.props.history.push('/get-user-tables');
+      alert('List has been deleted successfully')
     });
   }
 
@@ -73,35 +73,36 @@ class GetTablesLists extends Component {
     const { list } = this.props;
 
     return (
-      <div>
+      <div className='backgroundGetTablesLists'>
         <div id="navbar">
           <a href="#home">Home</a>
           <a href="#news">News</a>
           <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
           {/* <a href="#" onClick={this.signOut2}>
             Click me
           </a> */}
           <Link id='block' to="/">
           <div>
-            Wyloguj się
+            Log out
           </div>
           </Link>
         </div>
-        <button
+        {/* <button
           className="btn btn-danger pull-xs-right"
           onClick={this.onDeleteClick.bind(this, this.post())}
         >
-          Usuń tablicę
-        </button>
-        <h3>Lists:</h3>
+          Delete table
+        </button> */}
+        <h1 id='h1'>Lists</h1>
         <ul className="list-group">
           {/* {this.post()} */}
           {this.fetchLists()}
-            <Link className="btn btn-primary" to={`/get-tables-lists/${this.post()}/create-list`}>
-              Utwórz nową listę
+            <Link className="btn btn-primary" to={`/get-tables-lists/${this.post()}/create-list`} id='btnCreateNewList'>
+              Create new list
             </Link>
-            <Link className="btn btn-danger" to={`/get-user-tables`}>
-              Anuluj
+            <Link className="btn btn-danger" to={`/get-user-tables`} id='btnBackGetTablesLists'>
+              Back
             </Link>
         </ul>
 

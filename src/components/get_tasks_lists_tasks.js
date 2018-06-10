@@ -13,7 +13,6 @@ class GetTasksListsTasks extends Component {
     const { id_list } = this.props.match.params;
     const { id_card } = this.props.match.params;
     const {id_taskList} = this.props.match.params;
-    console.log('marcin', id_table, id_list, id_card, id_taskList)
     this.props.getTasksListsTasks(cookieEmail, cookieToken, id_table, id_list, id_card, id_taskList);
   }
 
@@ -25,7 +24,7 @@ class GetTasksListsTasks extends Component {
     const { id_card } = this.props.match.params;
     const {id_taskList} = this.props.match.params;
     this.props.deleteTask(cookieEmail, cookieToken, id_table, id_list, id_card, id_taskList, id_task, () => {
-      alert('Usunięto zadanie')
+      alert('Task has been deleted')
     });
   }
 
@@ -42,30 +41,29 @@ class GetTasksListsTasks extends Component {
     // String(task.is_finished) = 'UKOŃCZONE'
     // }
          return (
+           <li className="list-group-item" key={task.id} id="tasksNames">
+             <div id="tableContent">
+               <p></p>
+               <div className='b'><b>Description</b></div> {task.content}
+               <p></p>
+               <b>Finished </b> {String(task.is_finished)}
+               <p></p>
+               <b>User id </b>{task.assigned_to.id}
+               <p></p>
+               <b>User email </b>{task.assigned_to.email}
+               <p></p>
 
-           <li className="list-group-item" key={task.id}>
-             Id: {task.id}
-             <p></p>
-             Opis: {task.content}
-             <p></p>
-             Stan: {String(task.is_finished)}
-             <p></p>
-
-             <button
-               className="btn btn-danger pull-xs-right"
-               onClick={this.onDeleteClickTask.bind(this, task.id)}
-             >
-               Usuń zadanie
-             </button>
-             
-             Id wykonawcy: {task.assigned_to.id}
-             <p></p>
-             Email wykonawcy: {task.assigned_to.email}
-             <p></p>
+               <button
+                 id="btnDeleteTask"
+                 className="btn btn-danger pull-xs-right"
+                 onClick={this.onDeleteClickTask.bind(this, task.id)}
+               >
+                 Delete task
+               </button>
+             </div>
 
 
            </li>
-
          );
        });
   }
@@ -76,11 +74,23 @@ class GetTasksListsTasks extends Component {
     const { id_card } = this.props.match.params;
     const {id_taskList} = this.props.match.params;
     return (
-      <div>
+      <div className='backgroundGetTasksListsTasks'>
+        <div id="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
+          {/* <a href="#" onClick={this.signOut2}>
+            Click me
+          </a> */}
+          <Link id='block' to="/">
+          <div>
+            Log out
+          </div>
+          </Link>
+        </div>
+        <h1 id='h1'>Tasks</h1>
         <p></p>
-        ----Tasks------
-        <p></p>
-        <h3>Zadania:</h3>
           {this.fetchGroups()}
           <CreateTask id_table={id_table} id_list={id_list} id_card={id_card} id_taskList={id_taskList}/>
       </div>

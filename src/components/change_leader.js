@@ -29,7 +29,7 @@ class ChangeLeader extends Component {
       let cookieEmail = showCookie("cookieEmail");
       let cookieToken = showCookie("cookieToken");
       this.props.changeLeader(values, () => {
- alert('zmieniono id lidera');
+        alert('Leader has been changed');
 //      this.props.history.push(`/show-group/:${this.props.id}`);
 
       }, this.props.id, cookieEmail, cookieToken);
@@ -39,23 +39,22 @@ class ChangeLeader extends Component {
       const { handleSubmit } = this.props;
 
       return (
+        <div className='backgroundChangeLeader'>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div>
             <p></p>
-              <h3>Zmień lidera</h3>
-            <p></p>
-            <label>Podaj id</label>
-          <p></p>
+              <h2 id='h2ChangeLeader'>Change leader</h2>
           </div>
+          <div className='labelDescriptionLeaderId'>Leader id</div>
           <Field
-            label="Id lidera"
             name="leader_id"
             component={this.renderField}
           />
           <div>
-              <button type="submit" className="btn btn-primary">Zmień</button>
+              <button type="submit" className="btn btn-primary" id='btnChangeLeader'>Change</button>
           </div>
         </form>
+      </div>
       );
     }
   }
@@ -64,7 +63,7 @@ class ChangeLeader extends Component {
     const errors = {};
 
     if (!values.leader_id) {
-      errors.leader_id = "Wprowadź id lidera!";
+      errors.leader_id = "Enter leader id";
     }
 
     return errors;

@@ -28,7 +28,7 @@ class CreateTaskList extends Component {
       let cookieEmail = showCookie("cookieEmail");
       let cookieToken = showCookie("cookieToken");
       this.props.createTaskList(values, () => {
- alert('dodano listę zadań');
+        alert('New task list has been created');
 //      this.props.history.push(`/show-group/:${this.props.id}`);
 
 }, cookieEmail, cookieToken, this.props.id_table, this.props.id_list, this.props.id_card);
@@ -41,16 +41,16 @@ class CreateTaskList extends Component {
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div>
             <p></p>
-              <h3>Opis</h3>
+              <h2 id='h2createTaskList'>Create new task list</h2>
           <p></p>
           </div>
+          <div className='labelCreateTaskList'>Description</div>
           <Field
-            label="Lista zadań"
             name="name"
             component={this.renderField}
           />
           <div>
-              <button type="submit" className="btn btn-primary">Potwierdź</button>
+              <button type="submit" className="btn btn-primary"  id='btnCreateCreateTaskList'>Create</button>
           </div>
         </form>
       );
@@ -60,8 +60,8 @@ class CreateTaskList extends Component {
   function validate(values) {
     const errors = {};
 
-    if (!values.taskList) {
-      errors.taskList = "Wprowadź nazwę!";
+    if (!values.name) {
+      errors.name = "Enter description!";
     }
 
     return errors;

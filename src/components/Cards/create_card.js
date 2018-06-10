@@ -40,25 +40,42 @@ class CreateCard extends Component {
     const { handleSubmit } = this.props;
     const { id_table } = this.props.match.params;
     return (
+      <div className='backgroundCreateCard'>
+        <div id="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
+          {/* <a href="#" onClick={this.signOut2}>
+            Click me
+          </a> */}
+          <Link id='block' to="/">
+          <div>
+            Log out
+          </div>
+          </Link>
+        </div>
+          <p></p>
+        <h1 id='h1'>Create new card</h1>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <div className='labelNameCreateCard'>Title</div>
         <Field
-          label="Nazwa karty"
           name="title"
           component={this.renderField}
         />
+        <div className='labelNameCreateCard'>Description</div>
         <Field
-          label="Opis karty"
           name="description"
           component={this.renderField}
         />
         <div>
-          <button type="submit" className="btn btn-primary">Utwórz nową kartę</button>
-        </div>
-        <Link className="btn btn-danger" to={`/get-tables-lists/${id_table}`}>
-          Anuluj
+          <button type="submit" className="btn btn-primary" id='btnCreateCreateCard'>Create new card</button>
+        <Link className="btn btn-danger" to={`/get-tables-lists/${id_table}`} id='btnBackCreateCard'>
+          Back
         </Link>
+      </div>
       </form>
-
+    </div>
     );
   }
 }
@@ -67,10 +84,10 @@ function validate(values) {
     const errors = {};
 
     if(!values.title) {
-      errors.title = "Podaj nazwę karty!";
+      errors.title = "Enter title!";
     }
     if(!values.description) {
-      errors.description = "Podaj opis karty!";
+      errors.description = "Enter description!";
     }
     return errors;
 }

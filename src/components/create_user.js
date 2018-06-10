@@ -34,25 +34,30 @@ class CreateUser extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <Field
-          label="Email"
-          name="email"
-          component={this.renderField}
-        />
-        <Field
-          label="Password"
-          name="password"
-          component={this.renderField}
-        />
-        <Field
-          label="Potwierdzenie hasła"
-          name="password_confirmation"
-          component={this.renderField}
-        />
-        <button type="submit" className="btn btn-primary">Utwórz nowe konto</button>
-      </form>
-
+      <div className='backgroundCreateUser'>
+      <div className='createAnAccount'><b>Create an account</b></div><p></p>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <div className='labelEmail'>Email</div>
+          <Field
+            name="email"
+            component={this.renderField}
+          />
+          <div className='labelPassword'>Password</div>
+          <Field
+            name="password"
+            component={this.renderField}
+          />
+          <div className='labelPasswordConfirmation'>Password confirmation</div>
+          <Field
+            name="password_confirmation"
+            component={this.renderField}
+          />
+          <button type="submit" className="btn btn-primary">  Create  </button>
+          <Link className="btn btn-danger" to={`/sign_in`}>
+            Back
+          </Link>
+        </form>
+      </div>
     );
   }
 }
@@ -61,13 +66,13 @@ function validate(values) {
     const errors = {};
 
     if (!values.email) {
-      errors.email = "Wprowadź email!";
+      errors.email = "Enter email!";
     }
     if(!values.password) {
-      errors.password = "Wprowadź hasło!";
+      errors.password = "Enter password!";
     }
     if(!values.password_confirmation) {
-      errors.password_confirmation = "Potwierdź hasło!";
+      errors.password_confirmation = "Confirm password!";
     }
     return errors;
 }

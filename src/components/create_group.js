@@ -36,15 +36,35 @@ class CreateGroup extends Component {
     const { handleSubmit } = this.props;
 
     return (
+      <div className='backgroundCreateGroup'>
+        <div id="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
+          {/* <a href="#" onClick={this.signOut2}>
+            Click me
+          </a> */}
+          <Link id='block' to="/">
+          <div>
+            Log out
+          </div>
+          </Link>
+        </div>
+          <p></p>
+        <h1 id='h1'>Create new group</h1>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <div className='labelGroupName'>Name</div>
         <Field
-          label="Nazwa grupy"
           name="group_name"
           component={this.renderField}
         />
-        <button type="submit" className="btn btn-primary">Utwórz nową grupę</button>
+        <button type="submit" className="btn btn-primary" id='btnCreateGroup'>Create new group</button>
+        <Link className="btn btn-danger" to={`/get-user-groups`} id='btnBackCreateGroup'>
+          Back
+        </Link>
       </form>
-
+    </div>
     );
   }
 }
@@ -53,7 +73,7 @@ function validate(values) {
     const errors = {};
 
     if(!values.group_name) {
-      errors.group_name = "Podaj nazwę grupy!";
+      errors.group_name = "Enter name!";
     }
     return errors;
 }

@@ -29,7 +29,7 @@ class CreateComment extends Component {
       let cookieEmail = showCookie("cookieEmail");
       let cookieToken = showCookie("cookieToken");
       this.props.createComment(values, () => {
- alert('dodano komentarz');
+        alert('New comment has been created');
 //      this.props.history.push(`/show-group/:${this.props.id}`);
 
 }, cookieEmail, cookieToken, this.props.id_table, this.props.id_list, this.props.id_card);
@@ -42,16 +42,16 @@ class CreateComment extends Component {
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div>
             <p></p>
-              <h3>Opis</h3>
-          <p></p>
+              <h2 id='h2createComment'>Create new comment</h2>
+            <p></p>
           </div>
+          <div className='labelCreateComment'>Content</div>
           <Field
-            label="Content"
             name="content"
             component={this.renderField}
           />
           <div>
-              <button type="submit" className="btn btn-primary">Potwierdź</button>
+              <button type="submit" className="btn btn-primary" id='btnCreateComment'>Create</button>
           </div>
         </form>
       );
@@ -62,7 +62,7 @@ class CreateComment extends Component {
     const errors = {};
 
     if (!values.content) {
-      errors.content = "Wprowadź opis!";
+      errors.content = "Enter content!";
     }
 
     return errors;

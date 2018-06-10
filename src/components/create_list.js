@@ -43,26 +43,41 @@ class CreateList extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-
+    const { id } = this.props.match.params;//możemy to napisac dzięki React-Router; z adresu url pobieramy id ( z wildcarda /:id)
     return (
+      <div className='backgroundGetUserTables'>
+        <div id="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
+          {/* <a href="#" onClick={this.signOut2}>
+            Click me
+          </a> */}
+          <Link id='block' to="/">
+          <div>
+            Log out
+          </div>
+          </Link>
+        </div>
+        <h1 id='h1'>Create new list</h1>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div>
-          <p></p>
-            <label>Utwórz nową listę</label>
-          <p></p>
+
         </div>
+        <div className='labelNameCreateList'>Name</div>
         <Field
-          label="name"
           name="name"
           component={this.renderField}
         />
         <div>
-            <button type="submit" className="btn btn-primary">Utwórz</button>
-        </div>
-          <Link className="btn btn-danger" to="/get-tables-lists">
-            Anuluj
+            <button type="submit" className="btn btn-primary" id="btnCreateCreateList">Create</button>
+          <Link className="btn btn-danger" to={`/get-tables-lists/${id}`} id="btnBackCreateList">
+            Back
           </Link>
+        </div>
       </form>
+      </div>
     );
   }
 }

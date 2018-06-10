@@ -34,23 +34,22 @@ class RemoveUser extends Component {
         const { handleSubmit } = this.props;
 
         return (
-          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <div>
-              <p></p>
-                <h3>Usuń użytkownika</h3>
-              <p></p>
-              <label>Podaj id</label>
-            <p></p>
-            </div>
+          <div className='backgroundRemoveUser'>
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+              <div>
+                <p></p>
+                  <h2 id='h2RemoveUser'>Remove user from the group</h2>
+              </div>
+              <div className='labelDescriptionRemoveUser'>User id</div>
             <Field
-              label="user_id"
               name="user_id"
               component={this.renderField}
             />
             <div>
-                <button type="submit" className="btn btn-primary">Usuń</button>
+                <button type="submit" className="btn btn-primary" id='btnRemoveUser'>Remove</button>
             </div>
           </form>
+        </div>
         );
       }
     }
@@ -59,7 +58,7 @@ class RemoveUser extends Component {
       const errors = {};
 
       if (!values.user_id) {
-        errors.user_id = "Podaj id!";
+        errors.user_id = "Enter user id!";
       }
 
       return errors;

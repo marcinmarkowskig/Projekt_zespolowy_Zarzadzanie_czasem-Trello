@@ -28,7 +28,7 @@ class AddUser extends Component {
         let cookieEmail = showCookie("cookieEmail");
         let cookieToken = showCookie("cookieToken");
         this.props.addUser(values, () => {
-   alert('dodano użytkownika do grupy');
+          alert('User has been added to the group');
   //      this.props.history.push(`/show-group/:${this.props.id}`);
 
         }, this.props.id, cookieEmail, cookieToken);
@@ -38,23 +38,22 @@ class AddUser extends Component {
         const { handleSubmit } = this.props;
 
         return (
-          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <div>
-              <p></p>
-                <h3>Dodaj użytkownika do grupy</h3>
-              <p></p>
-              <label>Podaj email</label>
-            <p></p>
-            </div>
+          <div className='backgroundAddUser'>
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+              <div>
+                <p></p>
+                  <h2 id='h2AddUser'>Add user to the group</h2>
+              </div>
+              <div className='labelDescriptionAddUser'>User email</div>
             <Field
-              label="email"
               name="email"
               component={this.renderField}
             />
             <div>
-                <button type="submit" className="btn btn-primary">Dodaj</button>
+                <button type="submit" className="btn btn-primary" id='btnAddUser'>Add</button>
             </div>
           </form>
+        </div>
         );
       }
     }

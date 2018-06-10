@@ -28,7 +28,7 @@ class CreateTask extends Component {
       let cookieEmail = showCookie("cookieEmail");
       let cookieToken = showCookie("cookieToken");
       this.props.createTask(values, () => {
- alert('dodano zadanie');
+ alert('New task has been created');
 //      this.props.history.push(`/show-group/:${this.props.id}`);
 
 }, cookieEmail, cookieToken, this.props.id_table, this.props.id_list, this.props.id_card, this.props.id_taskList);
@@ -38,26 +38,28 @@ class CreateTask extends Component {
       const { handleSubmit } = this.props;
 
       return (
+        <div className='backgroundCreateTable'>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div>
             <p></p>
-              <h3>Opis</h3>
+          <h2 id='h2createTask'>Create new task</h2>
           <p></p>
           </div>
+          <div className='labelDescriptionCreateTask'>Description</div>
           <Field
-            label="Nazwa"
             name="content"
             component={this.renderField}
           />
+          <div className='labelIdCreateTask'>User id</div>
           <Field
-            label="Id wykonawcy"
             name="assigned_to"
             component={this.renderField}
           />
           <div>
-              <button type="submit" className="btn btn-primary">Potwierdź</button>
+              <button type="submit" className="btn btn-primary" id='btnCreateTask'>Create</button>
           </div>
         </form>
+      </div>
       );
     }
   }

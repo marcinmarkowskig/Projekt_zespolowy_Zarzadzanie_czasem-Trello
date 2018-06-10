@@ -16,21 +16,27 @@ class GetListsCards extends Component {
   fetchListsCards() {
       const { id_table } = this.props.match.params;
       const { id_list } = this.props.match.params;
-      console.log('get_lists_cards.js:', this.props.tables )
       return _.map(this.props.tables, table => {
         return (
-           <li className="list-group-item" key={table.id}>
+           <li className="list-group-item" key={table.id} id="cardsNames">
               <Link to={`/open-card/v1/tables/${id_table}/lists/${id_list}/cards/${table.id}/comments`}>
-               <b>Tytuł:</b> {table.title}
+              <p></p>
+                <div className='c'>{table.title}</div>
+                 <p></p>
+               <div className='b' id='descriptionGetListsCards'><b>Description </b>
                <p></p>
-               <b>Opis:</b> {table.description}
+               <div id="tableDescription">
+               {table.description}</div>
+             </div>
+               <p></p>
+               <button
+                 id='btnBackGetListsCards'
+                 className="btn btn-danger pull-xs-right"
+                 onClick={this.onDeleteClick.bind(this, table.id)}
+                 >
+                   Delete card
+                 </button>
              </Link>
-             <button
-               className="btn btn-danger pull-xs-right"
-               onClick={this.onDeleteClick.bind(this, table.id)}
-             >
-               Usuń kartę
-             </button>
            </li>
         );
       }
@@ -44,6 +50,7 @@ class GetListsCards extends Component {
     let cookieToken = showCookie("cookieToken");
     console.log(id_table)//działa dobrze
     this.props.deleteCard(id_table, id_list, id_card, cookieEmail, cookieToken, () => {
+      alert('Card has been deleted successfully')
       this.props.history.push(`/get-tables-lists/${id_table}`);
     });
   }
@@ -53,12 +60,27 @@ class GetListsCards extends Component {
     const { id_list } = this.props.match.params;
 
     return (
-      <div>
-          <ul className="list-group">
+      <div className='backgroundGetListsCards'>
+        <div id="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <Link to="/get-user-groups">Groups</Link>
+          {/* <a href="#" onClick={this.signOut2}>
+            Click me
+          </a> */}
+          <Link id='block' to="/">
+          <div>
+            Log out
+          </div>
+          </Link>
+        </div>
+        <h1 id='h1'>Cards</h1>
+          <ul className="list-group" id='listGroupGetListsCards'>
             {this.fetchListsCards()}
           </ul>
-          <Link className="btn btn-danger" to={`/get-tables-lists/${id_table}`}>
-            Anuluj
+          <Link className="btn btn-danger" to={`/get-tables-lists/${id_table}`} id='btnBackCards'>
+            Back
           </Link>
       </div>
     );
